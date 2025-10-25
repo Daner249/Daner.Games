@@ -1,0 +1,452 @@
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #0b0b2d, #1a1a4a);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Шапка */
+header {
+    background: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    padding: 2rem 0;
+    border-bottom: 2px solid #4e54c8;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: #4e54c8;
+}
+
+header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* Основное содержимое */
+main {
+    flex: 1;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+    width: 100%;
+}
+
+/* Секция с игрой */
+#game-section {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.game-container {
+    display: grid;
+    grid-template-columns: 300px 1fr 350px;
+    gap: 1.5rem;
+    align-items: start;
+}
+
+/* Левая панель */
+.left-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.stats-panel, .achievements-panel {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 1px solid #4e54c8;
+}
+
+.stats-panel h2, .achievements-panel h2 {
+    color: #4e54c8;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.stats-panel p {
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Центральная панель */
+.center-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.clicker-area {
+    text-align: center;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    border: 1px solid #4e54c8;
+    width: 100%;
+}
+
+#planet {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 50%;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#planet:hover {
+    transform: scale(1.05);
+    background: rgba(78, 84, 200, 0.2);
+}
+
+#planet:active {
+    transform: scale(0.95);
+}
+
+#planetImage {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+.clicker-area p {
+    margin: 1rem 0;
+    opacity: 0.8;
+}
+
+.click-power button {
+    background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.click-power button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+}
+
+.click-power button:disabled {
+    background: #666;
+    transform: none;
+    box-shadow: none;
+    cursor: not-allowed;
+}
+
+/* События */
+.events-panel {
+    background: rgba(255, 193, 7, 0.2);
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid #ffc107;
+    width: 100%;
+    text-align: center;
+}
+
+.events-panel h3 {
+    color: #ffc107;
+    margin-bottom: 0.5rem;
+}
+
+#eventMessage {
+    font-weight: bold;
+    min-height: 1.5em;
+}
+
+/* Правая панель */
+.right-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.upgrades-shop {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 1px solid #4e54c8;
+}
+
+.upgrades-shop h2 {
+    color: #4e54c8;
+    margin: 1.5rem 0 1rem 0;
+}
+
+.upgrades-shop h2:first-child {
+    margin-top: 0;
+}
+
+/* Элементы магазина */
+.upgrade-item, .planet-item, .mega-upgrade-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    margin: 0.5rem 0;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s ease;
+}
+
+.upgrade-item:hover, .planet-item:hover, .mega-upgrade-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateX(5px);
+}
+
+.upgrade-item img, .planet-item img, .mega-upgrade-item img {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.upgrade-info, .planet-info, .mega-upgrade-info {
+    flex: 1;
+}
+
+.upgrade-name, .planet-name, .mega-upgrade-name {
+    font-weight: bold;
+    margin-bottom: 0.2rem;
+    color: #4e54c8;
+}
+
+.upgrade-desc, .planet-desc, .mega-upgrade-desc {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: 0.3rem;
+}
+
+.upgrade-stats, .planet-stats, .mega-upgrade-stats {
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+.upgrade-item button, .planet-item button, .mega-upgrade-item button {
+    background: #4e54c8;
+    color: white;
+    border: none;
+    padding: 0.6rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    min-width: 120px;
+    transition: all 0.3s ease;
+}
+
+.upgrade-item button:hover, .planet-item button:hover, .mega-upgrade-item button:hover {
+    background: #6a70e0;
+    transform: translateY(-2px);
+}
+
+.upgrade-item button:disabled, .planet-item button:disabled, .mega-upgrade-item button:disabled {
+    background: #666;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Достижения */
+.achievement-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.8rem;
+    margin: 0.3rem 0;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.achievement-item.unlocked {
+    background: rgba(255, 215, 0, 0.2);
+    border-color: #ffd700;
+}
+
+.achievement-icon {
+    font-size: 1.5rem;
+    width: 30px;
+    text-align: center;
+}
+
+.achievement-info {
+    flex: 1;
+}
+
+.achievement-name {
+    font-weight: bold;
+    margin-bottom: 0.2rem;
+}
+
+.achievement-desc {
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.achievement-progress {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    margin-top: 0.3rem;
+    overflow: hidden;
+}
+
+.achievement-progress-bar {
+    height: 100%;
+    background: #4e54c8;
+    transition: width 0.3s ease;
+}
+
+/* Секция "Об игре" */
+#about {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+#about h2 {
+    color: #4e54c8;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.feature {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.feature h3 {
+    color: #4e54c8;
+    margin-bottom: 0.5rem;
+}
+
+/* Подвал */
+footer {
+    background: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: auto;
+    border-top: 2px solid #4e54c8;
+}
+
+.reset-btn {
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+
+.reset-btn:hover {
+    background: #ff5252;
+    transform: translateY(-2px);
+}
+
+/* Анимации */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+.pulse {
+    animation: pulse 0.5s ease-in-out;
+}
+
+.bounce {
+    animation: bounce 0.6s;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 1024px) {
+    .game-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .left-panel, .center-panel, .right-panel {
+        order: initial;
+    }
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    #planetImage {
+        width: 150px;
+        height: 150px;
+    }
+    
+    main {
+        padding: 1rem;
+    }
+    
+    .features {
+        grid-template-columns: 1fr;
+    }
+    
+    .upgrade-item, .planet-item, .mega-upgrade-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    .upgrade-item button, .planet-item button, .mega-upgrade-item button {
+        min-width: auto;
+        width: 100%;
+    }
+}
