@@ -147,5 +147,42 @@ class Leaderboard {
     }
 }
 
+// Демо-данные для таблицы лидеров (удалите в продакшене)
+function addDemoPlayers() {
+    const demoPlayers = [
+        { username: "Космонавт_Про", totalEarned: 1542670, clickPower: 45, passiveIncome: 8920 },
+        { username: "Галактика_42", totalEarned: 892350, clickPower: 32, passiveIncome: 5670 },
+        { username: "Звездный_Странник", totalEarned: 567890, clickPower: 28, passiveIncome: 3450 },
+        { username: "Орбитальный_Магнат", totalEarned: 234560, clickPower: 25, passiveIncome: 1890 },
+        { username: "Нова_Империя", totalEarned: 123450, clickPower: 18, passiveIncome: 920 },
+        { username: "Космический_Пионер", totalEarned: 87650, clickPower: 15, passiveIncome: 670 },
+        { username: "Туманность_X", totalEarned: 54320, clickPower: 12, passiveIncome: 450 },
+        { username: "Квантовый_Следопыт", totalEarned: 32100, clickPower: 10, passiveIncome: 290 },
+        { username: "Гравитация_Z", totalEarned: 18760, clickPower: 8, passiveIncome: 180 },
+        { username: "Созвездие_Альфа", totalEarned: 9560, clickPower: 6, passiveIncome: 120 }
+    ];
+
+    demoPlayers.forEach(player => {
+        if (!authSystem.users[player.username]) {
+            authSystem.users[player.username] = {
+                id: 'demo_' + player.username,
+                username: player.username,
+                joinDate: new Date(Date.now() - Math.random() * 30 * 24 * 60 * 60 * 1000).toISOString(),
+                totalEarned: player.totalEarned,
+                clickPower: player.clickPower,
+                passiveIncome: player.passiveIncome,
+                achievements: ['first_credit', 'hundred_credits', 'first_upgrade'],
+                lastPlayed: new Date(Date.now() - Math.random() * 24 * 60 * 60 * 1000).toISOString(),
+                playTime: Math.floor(Math.random() * 1000000)
+            };
+        }
+    });
+    
+    authSystem.saveUsers();
+}
+
+// Вызовите эту функцию после инициализации в leaderboard.js
+addDemoPlayers(); // Раскомментируйте эту строку чтобы добавить демо-игроков
+
 // Создаем глобальный экземпляр таблицы лидеров
 const leaderboard = new Leaderboard();
